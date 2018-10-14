@@ -10,7 +10,7 @@ int main()
 {
 	IOS;
 	ll flag = 0,a;
-	stack <char> op,in;
+	stack <char> op,ans;
 	cin>>s;
 	a = s.size();
 	for (int i = 0; i < s.size(); ++i)
@@ -27,13 +27,13 @@ int main()
 				do
 				{
 					if(op.top() != ')' and op.top() != '~')
-						cout<<op.top();
+						ans.push(op.top());
 					op.pop();
 				}
 				while(op.top() != '(');
 				op.pop();
 				if(!op.empty() and (op.top() == '~'))
-					cout<<op.top();
+					ans.push(op.top());
 				continue;
 			}
 		}
@@ -41,14 +41,23 @@ int main()
 		{
 			if(flag == 1)
 			{
-				cout<<s[i]<<op.top(),op.pop();
+				ans.push(s[i]);
+				ans.push(op.top());
+				op.pop();
 				continue;
 			}
-			cout<<s[i];
+			ans.push(s[i]);
 		}
 	}
 	while(!op.empty())
-		cout<<op.top(),op.pop();
-	cout<<endl;
+	{
+		ans.push(op.top());
+		op.pop();
+	}
+	while(!ans.empty())
+	{
+		in.push(ans.top());
+		ans.pop();
+	}
     return 0;
 }
