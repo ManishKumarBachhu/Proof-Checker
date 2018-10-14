@@ -1,1 +1,1 @@
-# Linear-SAT-Solver
+# Proof Checker
