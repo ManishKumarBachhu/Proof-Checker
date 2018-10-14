@@ -1,13 +1,15 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#define ull unsigned long long
+#define ll long long
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 using namespace std;
 string s;
 int main()
 {
 	IOS;
-	long long flag = 0,a;
+	ll flag = 0,a;
 	stack <char> op,in;
 	cin>>s;
 	a = s.size();
